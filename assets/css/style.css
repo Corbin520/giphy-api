@@ -1,0 +1,16 @@
+body {
+
+background: gray
+}
+
+img {
+    padding: 10px;
+}
+
+.topics {
+    font-family: 'Sniglet', cursive;
+    background: lightblue;
+    margin: 4px;
+    font-size: 20px;
+    font-weight: bold;
+}
