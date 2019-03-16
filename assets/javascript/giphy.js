@@ -58,6 +58,9 @@ $("#topic-buttons").on("click", ".topics" ,function() {
         }
         
     })
+    // empty out the giphys from the topic when you click another topic
+    $("#gif-view").empty();
+    $("#gif-view").append(img, newSearch,)
 })
 
 // IF/ELSE saying if the giphy is clicked on, make it either animate or still
@@ -99,8 +102,3 @@ topics.push(newSearch);
 topicButtons();
 
 });
-
-
-
-
-
