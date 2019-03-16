@@ -7,6 +7,8 @@ var topics = ["motocross", "utah jazz", "conor mcgregor", "donovan mitchell", "s
 // function that will take our topics array and create a button for each
 function topicButtons() {
  
+    $("#topic-buttons").empty()
+
     for (var i = 0; i < topics.length; i++) {
 
         var button = $("<button>");
@@ -22,6 +24,8 @@ topicButtons()
 
 // create a button that gets giffs based on the button value
 $("#topic-buttons").on("click", ".topics" ,function() {
+
+    
     
     var userClick = $(this).attr("data-name")
     // console.log(this) // this is a button
@@ -82,3 +86,21 @@ $("#gif-view").on("click", "img", function() {
         $(this).attr("data-state", "still");
       }
 })
+
+
+$("#add-movie").on("click", function(event) {
+
+event.preventDefault();
+
+var newSearch = $("#movie-input").val().trim()
+
+topics.push(newSearch);
+
+topicButtons();
+
+});
+
+
+
+
+
