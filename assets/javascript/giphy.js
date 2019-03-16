@@ -19,63 +19,66 @@ function topicButtons() {
 }
 topicButtons()
 
+
 // create a button that gets giffs based on the button value
 $("#topic-buttons").on("click", ".topics" ,function() {
     
     var userClick = $(this).attr("data-name")
+    // console.log(this) // this is a button
 
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + userClick + "&api_key=a5ddXmi4hflpwdykgf8ozFMiM45YCFb1&limit=10";
-    console.log(queryURL); 
+    // console.log(queryURL); 
  
+    // ajax call is calling our api, asking for a response and once it gets it, running the code below.
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        // console.log(response.data[0].images.fixed_width_still)
         var results = response.data
         
+        // creating an image src to push our gifs up to the html page
         for (var i = 0; i < response.data.length; i++) {
             var img = $("<img src="+response.data[i].images.fixed_width_still.url+">");
             
-
+            // this will hold our image and rating
             $("#gif-view").append(img);
             var p = $("<p>").text("Rating: " + results[i].rating);
             
+            // taking the rating and displaing it next to the giphy
             $("#gif-view").append(results[i].rating)
-
+            
+            // giving attr for each type of giphy (animate or still)
             img.attr("data-still", response.data[i].images.fixed_width_still.url);
-            
             img.attr("data-animate", response.data[i].images.fixed_width.url)
-
             img.attr("data-state", "still")
-            
-
-            var state = $(this).attr("data-state");
-            
-            
-            $("#gif-view").on("click", function() {
-
-                if (state === "still") {
-    
-                    $(this).attr("src", $(this).attr("data-animate"));
-                    $(this).attr("data-state", "animate");
-            
-                  } else {
-                    $(this).attr("src", $(this).attr("data-still"));
-                    $(this).attr("data-state", "still");
-                  }
-                console.log("I worked")
-                
-            })
         }
         
-    });
-});
+    })
+})
 
+// IF/ELSE saying if the giphy is clicked on, make it either animate or still
+$("#gif-view").on("click", "img", function() {
+    
+    // (this) = "<div id="gif-view" data-state="still"
+    // console.log(this)
 
+    
+    var state = $(this).attr("data-state");
 
-// set it up so clicking on the image will make it go
+    console.log("I worked")
+    
+    if (state === "still") {
+        // (this) = <div id="gif-view" data-state="animate">..</div>
+        // console.log(this)
 
-// still image
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate")
 
-// animated image
+      } else {
+        // (this) = <div id="gif-view" data-state="still">..</div>
+        //console.log(this)
+
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+      }
+})
