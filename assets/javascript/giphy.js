@@ -28,10 +28,10 @@ $("#topic-buttons").on("click", ".topics" ,function() {
     var userClick = $(this).attr("data-name")
     // console.log(this) // this is a button
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + userClick + "&api_key=a5ddXmi4hflpwdykgf8ozFMiM45YCFb1&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + userClick + "&api_key=a5ddXmi4hflpwdykgf8ozFMiM45YCFb1&limit=10";
     // console.log(queryURL); 
  
-    // ajax call is calling our api, asking for a response and once it gets it, running the code below.
+    
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -102,4 +102,3 @@ topics.push(newSearch);
 topicButtons();
 
 });
-
