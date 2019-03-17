@@ -1,7 +1,7 @@
 
 
 var topics = ["motocross", "utah jazz", "conor mcgregor", "donovan mitchell", "supercross",
-            "golf", "cody garbrandt", "tesla", "apple", "nike", "ufc", "ricky rubio", "bahamas"];
+            "golf", "cody garbrandt", "nike", "ufc", "ricky rubio"];
 
 
 // function that will take our topics array and create a button for each
@@ -24,7 +24,7 @@ topicButtons()
 
 // create a button that gets giffs based on the button value
 $("#topic-buttons").on("click", ".topics" ,function() {
-
+    $("#click-to-animate").show()
     
     
     var userClick = $(this).attr("data-name")
@@ -45,6 +45,7 @@ $("#topic-buttons").on("click", ".topics" ,function() {
             var img = $("<img src="+response.data[i].images.fixed_width_still.url+">");
             
             // this will hold our image and rating
+            
             $("#gif-view").append(img);
             var p = $("<p>").text("Rating: " + results[i].rating);
             
@@ -65,6 +66,7 @@ $("#topic-buttons").on("click", ".topics" ,function() {
 
 // IF/ELSE saying if the giphy is clicked on, make it either animate or still
 $("#gif-view").on("click", "img", function() {
+    
     
     // (this) = "<div id="gif-view" data-state="still"
     // console.log(this)
@@ -90,13 +92,13 @@ $("#gif-view").on("click", "img", function() {
       }
 })
 
-
-$("#add-movie").on("click", function(event) {
+// add a giphy
+$("#add-giphy").on("click", function(event) {
 
 event.preventDefault();
-
+// grab the value of input
 var newSearch = $("#movie-input").val().trim()
-
+// push value to array
 topics.push(newSearch);
 
 topicButtons();

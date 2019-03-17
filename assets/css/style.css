@@ -1,16 +1,74 @@
 body {
-
-background: gray
+widows: 970px;
+background: gray;
+background-image: url("../images/galaxy.jpg");
 }
 
 img {
     padding: 10px;
+    margin-top: 20px;
+    color: white;
+    border-radius: 10px;
 }
 
 .topics {
     font-family: 'Sniglet', cursive;
-    background: lightblue;
+    background:black;
+    color: gold;
+    font-weight: bold;
     margin: 4px;
     font-size: 20px;
     font-weight: bold;
+    border-radius: 15px;
 }
+
+#topic-buttons {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+    color: gold;
+}
+
+#giphy-form {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#gif-view {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#click-to-animate {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 35px;
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    display: none; 
+}
+
+h3 {
+    margin-top: 20px;
+    color: gold;
+    border: 2px black solid;
+    background: black;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
