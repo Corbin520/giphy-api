@@ -1,5 +1,3 @@
-
-
 var topics = ["motocross", "utah jazz", "conor mcgregor", "donovan mitchell", "supercross",
             "golf", "cody garbrandt", "nike", "ufc", "ricky rubio"];
 
@@ -104,3 +102,4 @@ topics.push(newSearch);
 topicButtons();
 
 });
+
